@@ -6,6 +6,7 @@ import wikipedia
 import time as t
 import pyjokes
 import random
+import sys
 '''speech_recognition, pyttx3 for listening and speaking
     pywhat for searching, songs , datetime for telling time 
     time module for sleep(pausing program) '''
@@ -21,6 +22,7 @@ def talk(text):
 def take_command():
     try:
         with sr.Microphone() as source:
+            talk('listening')
             print('listening...')
             voice = listner.listen(source)
             command = listner.recognize_google(voice)
@@ -73,6 +75,9 @@ def run_robin():
     elif 'tell a joke' in command:
         talk(pyjokes.get_joke())
 
+    elif 'stop' in command:
+        sys.exit()
+        
     else:
         talk('Please say again')
 
