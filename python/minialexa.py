@@ -66,12 +66,12 @@ def run_robin():
         else :
             talk('Sure , on thirty first feb')
     
-    elif 'are u single' in command:
+    elif 'are you single' in command:
         y = random.randint(0,2)
         if y==0 :
             talk(" sorry , I am committed with your WiFi ")
         elif y==1 :
-            talk("Yes , wht happen ")
+            talk("Yes , what happen ")
     elif 'tell a joke' in command:
         talk(pyjokes.get_joke())
 
