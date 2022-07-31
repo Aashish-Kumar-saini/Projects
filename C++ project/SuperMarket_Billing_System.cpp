@@ -307,7 +307,7 @@ void shopping :: list()
     data>>pcode>>pname>>price>>dis;
     while(!data.eof())
     {
-        cout<<pcode<<"\t"<<pname<<"\t"<<price<<endl;
+        cout<<pcode<<"\t"<<pname<<"\t\t"<<price<<endl;
         data>>pcode>>pname>>price>>dis;
     }
     data.close();
@@ -355,18 +355,18 @@ void shopping::reciept()
                     goto m;
                 }
             }c++;
-            cout<<"\n\n Do you want to buy another product if yes than pressy else n ";
+            cout<<"\n\n Do you want to buy another product if yes than press y else n ";
             cin>>choice;
         } while (choice =='y');
         
         cout<<"\n\n\t\t\t_________________RECIPT___________________";
-        cout<<"\nProduct No.\t product quantity\tprice\tAmount with discount\n";
+        cout<<"\nProduct No.\tProduct Name\t\t product quantity\t\tprice\t\tAmount with discount\n";
 
         for(int i=0;i<c;i++)
         {
             data.open("shopping.txt",ios :: in);
             data>>pcode>>pname>>price>>dis;
-            while(!data.eof())
+            while(!data.eof()&&i<100)
             {
                 if(pcode==arrc[i])
                 {
@@ -376,11 +376,12 @@ void shopping::reciept()
                     cout<<"\n"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t"<<price<<"\t\t"<<amount<<"\t\t"<<d;
                     
                 }
+                
                 data>>pcode>>pname>>price>>dis;
             }
-
+            data.close();
         }
-        data.close();
+        
     }
     cout<<"\n\n_____________________________________________________";
     cout<<"\n Total Amount : "<<total;
