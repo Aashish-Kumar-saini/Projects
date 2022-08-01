@@ -180,7 +180,8 @@ void shopping :: add()
         }
         data.close();
         if(token==1)
-            goto m;
+            {   cout<<"\n\t\tAlready exist! ";
+                goto m;}
         else{
             data.open("shopping.txt",ios::app|ios::out);
             data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
@@ -360,7 +361,7 @@ void shopping::reciept()
         } while (choice =='y');
         
         cout<<"\n\n\t\t\t_________________RECIPT___________________";
-        cout<<"\nProduct No.\tProduct Name\t\t product quantity\t\tprice\t\tAmount with discount\n";
+        cout<<"\nProduct No.\tProduct Name\t product quantity\tprice\tQuantity price\tAmount with discount\n";
 
         for(int i=0;i<c;i++)
         {
@@ -373,7 +374,7 @@ void shopping::reciept()
                     amount =price*arrq[i];
                     d =amount-(amount*dis/100);
                     total=total +d;
-                    cout<<"\n"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t"<<price<<"\t\t"<<amount<<"\t\t"<<d;
+                    cout<<"\n"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t\t"<<price<<"\t\t"<<amount<<"\t\t"<<d;
                     
                 }
                 
